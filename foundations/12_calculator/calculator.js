@@ -1,13 +1,16 @@
-const add = function() {
-	
+const add = function(a , b) {
+	return a + b;
 };
 
-const subtract = function() {
-	
+const subtract = function(a, b) {
+	return a - b;
 };
 
-const sum = function() {
-	
+const sum = function(arr) {
+	return arr.reduce((acc, curr) => {acc + curr
+    console.log("This is the accumulator", acc);
+    console.log("This is the current Value", curr);
+  }, 0);
 };
 
 const multiply = function() {
