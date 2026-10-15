@@ -7,22 +7,27 @@ const subtract = function(a, b) {
 };
 
 const sum = function(arr) {
-	return arr.reduce((acc, curr) => {acc + curr
-    console.log("This is the accumulator", acc);
-    console.log("This is the current Value", curr);
+	return arr.reduce(function(acc, curr){
+    return acc + curr;
   }, 0);
 };
 
-const multiply = function() {
-
+const multiply = function(arr) {
+  return arr.reduce(function(acc, curr){
+    return acc * curr;
+  }, 1);
 };
 
-const power = function() {
-	
+const power = function(a, b) {
+	return a ** b;
 };
 
-const factorial = function() {
-	
+const factorial = function(num) {
+  let res = 1;
+  for (let i = 1; i <= num; i++) {
+    res *= i;
+  }
+  return res;
 };
 
 // Do not edit below this line
