@@ -8,18 +8,41 @@ const palindromes = function (string) {
     SPLIT it 
     then store it
     REVERSE it 
-    then STORE it
-    finally COMPARE to the SPLIT of the original passed string
-    IF they are equal Yay! it is a palidrome
-    ELSE it is not
+    then STORE it 
+    -- finally COMPARE to the SPLIT of the original passed string
+      For the comparism there is a new subproblem here, 
+      I have to compare the items that have been splited char by char and they are now individual elements
+
+      // Take the first element of the splited and the first element the reversed and check if they are the same
+         IF they are move on to the next one
+         ELSE stop operation and return false
+
+         pair the first and the second elements from the first array and the second array's 2 elements
+         IF they are the same move on to the next until the end of the string as long as it is true
+         ELSE return false
+         IF all the elements satisfy the condition of equality return true
+
+        IF they are equal Yay! it is a palidrome
+        ELSE it is not
      */
 
     const splitString = string.split("");
     const reversedString = splitString.reverse();
+    console.log("This is the splitString length", splitString.length);
+    console.log("This is the reversedString length", reversedString.length);
+    if (splitString.length !== reversedString.length) {
+        return false;
+    }
 
-    const result = splitString.every((element, index) => {
-        return element.localeCompare(reversedString);
-    });
+    for (let i = 0; i < splitString.length; i++){
+        console.log("This is the value of i", i);
+        if (splitString[i] !== reversedString[i]) {
+            console.log("This is also the value of i", i);
+            return false;
+        }
+    }
+console.log("This runs because it passed");
+    return true;
 };
 
 // Do not edit below this line
