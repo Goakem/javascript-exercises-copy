@@ -26,24 +26,26 @@ const palindromes = function (string) {
         ELSE it is not
      */
 
-    const splitString = string.split("");
-    const reversedString = splitString.reverse();
-    console.log("This is the splitString length", splitString.length);
-    console.log("This is the reversedString length", reversedString.length);
-    if (splitString.length !== reversedString.length) {
-        return false;
-    }
+    const splitString = [...string];
+    const reversedString = splitString.toReversed();
+    
+    for (let i = 0; i < splitString.length; i++) {
+        if ((splitString[i] === "" || reversedString[i] === "")) {
+            
+        }
+        const compare = splitString[i] === reversedString[i];
+        console.log(compare);
 
-    for (let i = 0; i < splitString.length; i++){
-        console.log("This is the value of i", i);
-        if (splitString[i] !== reversedString[i]) {
-            console.log("This is also the value of i", i);
+        if (compare) {
+            return true;
+        } else {
             return false;
         }
     }
-console.log("This runs because it passed");
+
     return true;
 };
+
 
 // Do not edit below this line
 module.exports = palindromes;
