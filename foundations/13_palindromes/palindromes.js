@@ -1,39 +1,25 @@
 const palindromes = function (string) {
-    /*
-    Problem = Take a string and check if it is equal after it is reversed
-
-    pseudocode
-    
-    Take the string passed as argument
-    SPLIT it 
-    then store it
-    REVERSE it 
-    then STORE it 
-    -- finally COMPARE to the SPLIT of the original passed string
-      For the comparism there is a new subproblem here, 
-      I have to compare the items that have been splited char by char and they are now individual elements
-
-      // Take the first element of the splited and the first element the reversed and check if they are the same
-         IF they are move on to the next one
-         ELSE stop operation and return false
-
-         pair the first and the second elements from the first array and the second array's 2 elements
-         IF they are the same move on to the next until the end of the string as long as it is true
-         ELSE return false
-         IF all the elements satisfy the condition of equality return true
-
-        IF they are equal Yay! it is a palidrome
-        ELSE it is not
-     */
-
     const splitString = [...string];
-    const reversedString = splitString.toReversed();
+    const newString = [];
     
     for (let i = 0; i < splitString.length; i++) {
-        if ((splitString[i] === "" || reversedString[i] === "")) {
-            
+        console.log("This is I", i);
+        console.log("This is the splitString element currently in action",splitString[i]);
+        if ((splitString[i] !== " ") && (splitString[i] !== ",") && (splitString[i] !== ".") && (splitString[i] !== "!") ) {
+           
+            newString.push(splitString[i]);
+            console.log(newString);
+            console.log("They are not equal", splitString[i] !== " ");
         }
-        const compare = splitString[i] === reversedString[i];
+
+        console.log("This is the final new string", newString);
+        
+    }
+    const reversedString = newString.toReversed();
+    console.log("this is the reversed string", reversedString);
+
+    for (let i = 0; i < newString.length; i++) {
+        const compare = newString[i].toLowerCase() === reversedString[i].toLowerCase();
         console.log(compare);
 
         if (compare) {
@@ -42,10 +28,7 @@ const palindromes = function (string) {
             return false;
         }
     }
-
-    return true;
 };
 
-
-// Do not edit below this line
-module.exports = palindromes;
+//Do not edit below this line
+// module.exports = palindromes;
