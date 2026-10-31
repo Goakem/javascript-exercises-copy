@@ -4,14 +4,10 @@ const palindromes = function (string) {
     let result;
     
     for (let i = 0; i < splitString.length; i++) {
-        console.log("This is I", i);
-        console.log("This is the splitString element currently in action",splitString[i]);
         if ((splitString[i] !== " ") && (splitString[i] !== ",") && (splitString[i] !== ".") && (splitString[i] !== "!") ) {
            
             newString.push(splitString[i]);
         }
-
-        console.log("This is the final new string", newString);
         
     }
     const reversedString = newString.toReversed();
@@ -19,7 +15,6 @@ const palindromes = function (string) {
 
     for (let i = 0; i < newString.length; i++) {
         const compare = newString[i].toLowerCase() === reversedString[i].toLowerCase();
-        console.log("This is the final reault of the conditional",compare);
 
         if (compare) {
             result = true;
@@ -29,7 +24,6 @@ const palindromes = function (string) {
         }
     }
 
-    console.log("This is the final result", result);
     return result;
 };
 
