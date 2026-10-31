@@ -19,7 +19,7 @@ describe('palindromes', () => {
   test('detects non-palindromes', () => {
     expect(palindromes('ZZZZ car, a man, a maracaz.')).toBe(false);
   });
-  test.skip('detects non-palindromes with numbers', () => {
+  test('detects non-palindromes with numbers', () => {
     expect(palindromes('r3ace3car')).toBe(false);
   });
 });

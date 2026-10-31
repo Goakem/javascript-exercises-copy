@@ -1,6 +1,7 @@
 const palindromes = function (string) {
     const splitString = [...string];
     const newString = [];
+    let result;
     
     for (let i = 0; i < splitString.length; i++) {
         console.log("This is I", i);
@@ -8,8 +9,6 @@ const palindromes = function (string) {
         if ((splitString[i] !== " ") && (splitString[i] !== ",") && (splitString[i] !== ".") && (splitString[i] !== "!") ) {
            
             newString.push(splitString[i]);
-            console.log(newString);
-            console.log("They are not equal", splitString[i] !== " ");
         }
 
         console.log("This is the final new string", newString);
@@ -20,15 +19,20 @@ const palindromes = function (string) {
 
     for (let i = 0; i < newString.length; i++) {
         const compare = newString[i].toLowerCase() === reversedString[i].toLowerCase();
-        console.log(compare);
+        console.log("This is the final reault of the conditional",compare);
 
         if (compare) {
-            return true;
+            result = true;
         } else {
-            return false;
+            result = false;
+            break;
         }
     }
+
+    console.log("This is the final result", result);
+    return result;
 };
+
 
 //Do not edit below this line
 module.exports = palindromes;
