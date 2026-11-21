@@ -1,44 +1,38 @@
 const findTheOldest = function(arr) {
-    /*
-    The problem is to get the person with the oldest age using the information that has been provided in the person object in the array
-
-    // The first subproblem is to find the age of the people and return the person with the oldest age 
-    // After their ages has been calculated their age should be compared and return as the final answer
-    */
-   let ageArr = [];
-   let result;
-   for (let i = 0; i < arr.length; i++){
-    arr[i].age = arr[i].yearOfDeath - arr[i].yearOfBirth;
+   /* The problem is to return the name of the person "object" from the person array with the oldest age 
+   Step 1: Calculate the age for each person object
+   Step 2: Check to see the person with the oldest age after the calculation
+   Step 3: Return the person object with the oldest age
+   */
+  // Step 1: Calculate the age for each person
+    /* To calculate the age Subtract birth Year from Death year
+       i.e. age = yearOfDeath - yearOfBirth
+   */
+  function calcAge(object) { // This Calc the age and mutate the objects in array
+   let age = object.yearOfDeath - object.yearOfBirth;
+   if (object.yearOfDeath === undefined) {
+      const date = new Date();
+      const presentYear = date.getFullYear();
+      age = presentYear - object.yearOfBirth;
    }
+   return object.age = age;
+  }
+  const ageArray = arr.map(calcAge); // <- This is the array of age od the elements
 
-   for (i = 0; i < arr.length; i++) {
-    ageArr.push(arr[i].age);
-   }
-   console.log(ageArr);
-   const oldestAge = Math.max(...ageArr);
-   console.log("This is the oldest of them all", oldestAge);
-
-   result = arr.filter( (element) => element.age === oldestAge);
-   return result;
+  // Step 2: Check to see the person object with the oldest age
+      /* To Check to see the person with the oldest age
+         1. Find the oldest age in the array of Ages
+         2. then Filter the person with the same age as the maximum age
+      */
+     const oldestAge = Math.max(...ageArray);  // <- This returns the oldest age of the 3
+     const oldestPersonArray = arr.filter(
+      function (object) {
+         return object.age === oldestAge;
+      }
+     ); // <- This returns the array of the oldestPerson
+     const oldestPerson = oldestPersonArray[0];
+     return oldestPerson;
 };
-const people = [
-    {
-    name: "Carly",
-    yearOfBirth: 1942,
-    yearOfDeath: 1970,
-    },
-    {
-    name: "Ray",
-    yearOfBirth: 1962,
-    yearOfDeath: 2011,
-    },
-    {
-    name: "Jane",
-    yearOfBirth: 1912,
-    yearOfDeath: 1941,
-    },
-]
 
-console.log(findTheOldest(people));
 // Do not edit below this line
-// module.exports = findTheOldest;
+module.exports = findTheOldest;
