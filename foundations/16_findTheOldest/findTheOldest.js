@@ -17,7 +17,7 @@ const findTheOldest = function(arr) {
    function (object) {
       return object.age === oldestAge;
    }
-   ); // <- This returns the array of the oldestPerson
+   ); 
    const oldestPerson = oldestPersonArray[0];
    return oldestPerson;
 };
